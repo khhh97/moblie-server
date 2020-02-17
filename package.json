@@ -1,0 +1,72 @@
+{
+  "name": "mobile-server",
+  "version": "0.0.2",
+  "description": "毕业设计-多平台技术交流类小程序后端服务",
+  "private": false,
+  "egg": {
+    "declarations": true
+  },
+  "dependencies": {
+    "egg": "^2.15.1",
+    "egg-scripts": "^2.11.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "cz-conventional-changelog": "3.1.0",
+    "egg-bin": "^4.11.0",
+    "egg-ci": "^1.11.0",
+    "egg-mock": "^3.21.0",
+    "eslint": "^5.13.0",
+    "eslint-config-egg": "^7.1.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.7",
+    "prettier": "1.19.1",
+    "standard-changelog": "^2.0.21"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=egg-server-mobile-server",
+    "stop": "egg-scripts stop --title=egg-server-mobile-server",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod",
+    "commit": "npx git-cz",
+    "version": "standard-changelog -f && git add CHANGELOG.md"
+  },
+  "ci": {
+    "version": "10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khhh97/moblie-server.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --quiet --fix",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "author": "彭俊",
+  "license": "MIT"
+}
