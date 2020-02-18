@@ -5,7 +5,7 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/', controller.home.index);
-  router.get('/api', controller.home.index);
-  router.get('/api/a', controller.home.index);
+  // 统一路由前缀 /api
+  const subRouter = router.namespace('/api');
+  subRouter.get('/', controller.home.index);
 };
