@@ -44,15 +44,6 @@ module.exports = appInfo => {
   };
 
   // add your user config here
-  config.oss = {
-    client: {
-      region: '',
-      accessKeyId: '',
-      accessKeySecret: '',
-      bucket: ''
-    }
-  };
-
   const userConfig = {
     qiniu: {
       accessKey: '',
@@ -65,6 +56,12 @@ module.exports = appInfo => {
       appkey: '',
       templateId: '',
       smsSign: ''
+    },
+    oss: {
+      region: '',
+      accessKeyId: '',
+      accessKeySecret: '',
+      bucket: ''
     }
   };
 

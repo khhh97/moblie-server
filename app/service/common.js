@@ -1,5 +1,6 @@
 const { Service } = require('egg');
 const qiniu = require('qiniu');
+const OSS = require('ali-oss');
 const path = require('path');
 const fs = require('mz/fs');
 const QcloudSms = require('qcloudsms_js');
@@ -57,11 +58,19 @@ class CommonService extends Service {
     }
     const { filepath } = file;
 
+    const { region, accessKeyId, accessKeySecret, bucket } = ctx.app.config.oss;
+    const client = new OSS({
+      region,
+      accessKeyId,
+      accessKeySecret,
+      bucket
+    });
     const name = 'mobile/' + path.basename(filepath);
     let result;
+
     try {
       // 处理文件，上传到云端
-      result = await ctx.oss.put(name, filepath);
+      result = await client.put(name, filepath);
     } finally {
       // 删除临时文件
       await fs.unlink(filepath);
