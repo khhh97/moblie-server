@@ -14,10 +14,11 @@ module.exports = () => {
         : error.message
           ? error.message
           : '服务器出现错误，请稍后重试!';
+      console.log(error);
       ctx.body = {
         code: status,
         msg: message,
-        data: {}
+        data: error.errors || ''
       };
       ctx.status = status;
     }

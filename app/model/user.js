@@ -1,7 +1,7 @@
 const { tableConfig, getTableAttributes } = require('./base');
 
 module.exports = app => {
-  const { STRING, INTEGER, DATE, ENUM } = app.Sequelize;
+  const { STRING, INTEGER, ENUM } = app.Sequelize;
 
   const User = app.model.define(
     'user',
@@ -17,14 +17,15 @@ module.exports = app => {
       },
       avatar: {
         type: STRING,
-        defaultValue: 'https://khhh97.oss-cn-beijing.aliyuncs.com/mobile/defaultAvatar.jpg'
+        defaultValue:
+          'https://khhh97.oss-cn-beijing.aliyuncs.com/mobile/defaultAvatar.jpg'
       },
       verify_code: {
         type: STRING,
         comment: '验证码'
       },
       verify_expire: {
-        type: DATE,
+        type: STRING,
         comment: '验证码过期时间'
       },
       gender: {
@@ -66,6 +67,11 @@ module.exports = app => {
     }),
     tableConfig
   );
+
+  // 根据手机号码查找用户
+  User.findUserByPhoneNumber = async function(phone) {
+    return await this.findOne({ where: { phone } });
+  };
 
   return User;
 };

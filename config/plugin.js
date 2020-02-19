@@ -21,3 +21,9 @@ exports.sequelize = {
   enable: true,
   package: 'egg-sequelize'
 };
+
+// 阿里云oss
+exports.oss = {
+  enable: true,
+  package: 'egg-oss'
+};

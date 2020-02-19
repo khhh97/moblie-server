@@ -20,21 +20,21 @@ exports.getTableAttributes = (DataTypes, options) => {
       allowNull: false
     },
     ...options,
-    created_at: {
+    createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
       comment: '创建时间',
       get() {
-        return moment(this.getDataValue('created_at')).format(
+        return moment(this.getDataValue('createdAt')).format(
           'YYYY-MM-DD HH:mm:ss'
         );
       }
     },
-    updated_at: {
+    updatedAt: {
       type: DataTypes.DATE,
       comment: '更新时间',
       get() {
-        return moment(this.getDataValue('updated_at')).format(
+        return moment(this.getDataValue('updatedAt')).format(
           'YYYY-MM-DD HH:mm:ss'
         );
       }

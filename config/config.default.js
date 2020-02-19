@@ -13,6 +13,13 @@ module.exports = appInfo => {
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
 
+  // csrf配置
+  config.security = {
+    csrf: {
+      ignore: () => true
+    }
+  };
+
   // sequelize配置
   config.sequelize = {
     dialect: 'mysql',
@@ -31,9 +38,34 @@ module.exports = appInfo => {
     }
   };
 
+  // 上传文件配置
+  config.multipart = {
+    mode: 'file'
+  };
+
   // add your user config here
+  config.oss = {
+    client: {
+      region: '',
+      accessKeyId: '',
+      accessKeySecret: '',
+      bucket: ''
+    }
+  };
+
   const userConfig = {
-    // myAppName: 'egg',
+    qiniu: {
+      accessKey: '',
+      secretKey: '',
+      template_id: ''
+    },
+    // 腾讯云短信配置
+    qCloudSms: {
+      appid: '',
+      appkey: '',
+      templateId: '',
+      smsSign: ''
+    }
   };
 
   return {
