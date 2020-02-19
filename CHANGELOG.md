@@ -1,4 +1,4 @@
-## [0.0.2](https://github.com/khhh97/moblie-server/compare/v0.0.1...v0.0.2) (2020-02-19)
+## [0.0.3](https://github.com/khhh97/moblie-server/compare/v0.0.1...v0.0.3) (2020-02-19)
 
 
 ### Bug Fixes
@@ -8,6 +8,7 @@
 
 ### Features
 
+* 新增文件上传以及发送验证码接口 ([6aebf09](https://github.com/khhh97/moblie-server/commit/6aebf0970bbac054cb6e3e5e7fc99b0f16bceb24))
 * 添加数据库配置 ([51e469b](https://github.com/khhh97/moblie-server/commit/51e469b8a4fb16e780e4625e0c3e570e4ea154ff))
 
 
