@@ -1,3 +1,19 @@
+## [0.0.4](https://github.com/khhh97/moblie-server/compare/v0.0.3...v0.0.4) (2020-02-20)
+
+
+### Bug Fixes
+
+* 解决线上sequelize部署问题 ([f77f73b](https://github.com/khhh97/moblie-server/commit/f77f73bc6d4c50b4b1548ccb5b36b8be10ea1d26))
+
+
+### Features
+
+* 新增dev环境下的启动及restart命令 ([999f58a](https://github.com/khhh97/moblie-server/commit/999f58aa32efc62cdee1347b018ecdb40e7cba9e))
+* 新增关注粉丝相关接口 ([c2d8fce](https://github.com/khhh97/moblie-server/commit/c2d8fce111de16836d4b66feaaddd78fab75abc8))
+* 新增有关用户信息的几个接口 ([ff237cf](https://github.com/khhh97/moblie-server/commit/ff237cf9f64aaaf3d07024e074efa95f664edcc6))
+
+
+
 ## [0.0.3](https://github.com/khhh97/moblie-server/compare/v0.0.1...v0.0.3) (2020-02-19)
 
 
