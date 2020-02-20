@@ -5,7 +5,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + 'mobile-server';
 
   // add your middleware config here
-  config.middleware = ['notfoundHandler', 'errorHandler'];
+  config.middleware = ['notfoundHandler', 'errorHandler', 'authorization'];
 
   // 跨域配置
   config.cors = {
@@ -62,6 +62,12 @@ module.exports = appInfo => {
       accessKeyId: '',
       accessKeySecret: '',
       bucket: ''
+    },
+    token: {
+      secret: 'mobile',
+      // 过期时间为 7天
+      expired: '7d',
+      whiteRouter: ['/api/verify', '/api/login']
     }
   };
 

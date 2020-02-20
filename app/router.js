@@ -16,4 +16,15 @@ module.exports = app => {
   // 上传文件
   subRouter.post('/upload', controller.common.uploadFile);
 
+  // 获取自己的用户信息
+  subRouter.get('/user/my', controller.user.getMyInfo);
+
+  // 获取个人主页信息
+  subRouter.get('/user/profile/:id', controller.user.getUserInfo);
+
+  // 更新用户信息
+  subRouter.post('/user/update', controller.user.updateUserInfo);
+
+  // 上传用户头像
+  subRouter.post('/user/avatar', controller.user.updateUserAvatar);
 };
