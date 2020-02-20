@@ -41,7 +41,10 @@
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-mobile-server",
     "stop": "egg-scripts stop --title=egg-server-mobile-server",
+    "restart": "npm run stop && npm run start",
+    "start:dev": "egg-scripts start --daemon --title=egg-server-mobile-server-dev",
     "stop:dev": "egg-scripts stop --title=egg-server-mobile-server-dev",
+    "restart:dev": "npm run stop:dev && npm run start:dev",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
