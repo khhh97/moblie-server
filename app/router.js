@@ -27,4 +27,13 @@ module.exports = app => {
 
   // 上传用户头像
   subRouter.post('/user/avatar', controller.user.updateUserAvatar);
+
+  // 新增关注
+  subRouter.post('/follow/:id', controller.follow.create);
+
+  // 获取关注列表
+  subRouter.get('/follows', controller.follow.getFollowList);
+
+  // 获取粉丝列表
+  subRouter.get('/fans', controller.follow.getFansList);
 };

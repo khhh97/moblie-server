@@ -63,3 +63,31 @@ exports.validateToken = (ctx, token) => {
     });
   });
 };
+
+/**
+ * @description 错误ctx.body 回调
+ * @param {Object} ctx - Koa Context
+ * @param {String} message - 错误信息
+ * @param {Number} code - 错误码,默认400
+ */
+exports.fail = (ctx, message = '发生点错误，请重试', code = 400) => {
+  ctx.body = {
+    code,
+    msg: message,
+    data: ''
+  };
+};
+
+/**
+ * @description 成功ctx.body 回调
+ * @param {Object} ctx - Koa Context
+ * @param {Object} data - 成功返回的数据
+ * @param {String} message - 错误信息
+ */
+exports.success = (ctx, data = '', message = '') => {
+  ctx.body = {
+    code: 200,
+    msg: message,
+    data
+  };
+};

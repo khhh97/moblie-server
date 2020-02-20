@@ -185,12 +185,19 @@ class UserController extends Controller {
         'job',
         'gender',
         'birth',
-        'fans_count',
-        'follow_count',
-        'dynamic_count',
         'bio'
       ]
     });
+    // 获取关注总数
+    const follow_count = await ctx.model.Follow.count({
+      where: { user_id: id }
+    });
+    const fans_count = await ctx.model.Follow.count({
+      where: { followed_user_id: id }
+    });
+    user.dataValues.follow_count = follow_count;
+    user.dataValues.fans_count = fans_count;
+    // 获取粉丝总数
     ctx.body = {
       code: 200,
       msg: '',
@@ -213,10 +220,6 @@ class UserController extends Controller {
         'phone',
         'avatar',
         'job',
-        'fans_count',
-        'follow_count',
-        'dynamic_count',
-        'praise_count',
         'bio'
       ]
     });
@@ -224,6 +227,15 @@ class UserController extends Controller {
     if (myUserId === Number(userId)) {
       showFollow = false;
     }
+    // 获取关注总数
+    const follow_count = await ctx.model.Follow.count({
+      where: { user_id: userId }
+    });
+    const fans_count = await ctx.model.Follow.count({
+      where: { followed_user_id: userId }
+    });
+    user.dataValues.follow_count = follow_count;
+    user.dataValues.fans_count = fans_count;
     user.dataValues.showFollow = showFollow;
     ctx.body = {
       code: 200,
