@@ -18,7 +18,8 @@
     "moment": "^2.24.0",
     "mysql2": "^2.1.0",
     "qcloudsms_js": "^0.1.1",
-    "qiniu": "^7.3.0"
+    "qiniu": "^7.3.0",
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",

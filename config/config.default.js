@@ -67,7 +67,12 @@ module.exports = appInfo => {
       secret: 'mobile',
       // 过期时间为 7天
       expired: '7d',
-      whiteRouter: ['/api/verify', '/api/login']
+      whiteRouter: [
+        '/api/verify',
+        '/api/login',
+        '/api/topics',
+        { method: 'get', url: '/api/article' }
+      ]
     }
   };
 

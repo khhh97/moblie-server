@@ -36,4 +36,16 @@ module.exports = app => {
 
   // 获取粉丝列表
   subRouter.get('/fans', controller.follow.getFansList);
+
+  // 创建主题
+  subRouter.post('/topic', controller.topic.new);
+
+  // 获取所有可展示主题
+  subRouter.get('/topics', controller.topic.getAllTopic);
+
+  // 创建文章
+  subRouter.post('/article', controller.article.create);
+
+  // 获取文章信息
+  subRouter.get('/article', controller.article.getArticleDetail);
 };

@@ -1,10 +1,16 @@
 // token认证校验
 module.exports = () => {
   return async function authorization(ctx, next) {
-    const { whiteRouter } = ctx.app.config.token;
+    let { whiteRouter } = ctx.app.config.token;
     const path = ctx.request.path;
-    const shouldAuth = !whiteRouter.includes(path);
-    if (shouldAuth) {
+    const method = ctx.request.method.toLowerCase();
+    whiteRouter = whiteRouter.filter(item => {
+      if (typeof item === 'object') {
+        return item.method.toLowerCase() === method && path === item.url;
+      }
+      return item === path;
+    });
+    if (whiteRouter.length === 0) {
       const { token, platform } = ctx.request.header;
       // token为空
       if (!token) {
