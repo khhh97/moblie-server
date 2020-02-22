@@ -1,6 +1,6 @@
 {
   "name": "mobile-server",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "毕业设计-多平台技术交流类小程序后端服务",
   "private": false,
   "egg": {
