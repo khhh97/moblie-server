@@ -189,15 +189,15 @@ class UserController extends Controller {
       ]
     });
     // 获取关注总数
-    const follow_count = await ctx.model.Follow.count({
-      where: { user_id: id }
-    });
-    const fans_count = await ctx.model.Follow.count({
-      where: { followed_user_id: id }
-    });
+    const {
+      fans_count,
+      follow_count,
+      article_count
+    } = await ctx.service.user.getUserAllCount(ctx, id);
     user.dataValues.follow_count = follow_count;
     user.dataValues.fans_count = fans_count;
-    // 获取粉丝总数
+    user.dataValues.article_count = article_count;
+
     ctx.body = {
       code: 200,
       msg: '',
@@ -210,33 +210,30 @@ class UserController extends Controller {
    */
   async getUserInfo() {
     const { ctx } = this;
-    const myUserId = ctx.request.user.id;
-    const userId = ctx.params.id;
+    const userId = ctx.request.body.id;
+
+    if (!userId) {
+      ctx.helper.fail(ctx, '缺少必要参数用户id');
+      return;
+    }
+
     const user = await ctx.model.User.findOne({
       where: { id: userId },
-      attributes: [
-        'id',
-        'nickname',
-        'phone',
-        'avatar',
-        'job',
-        'bio'
-      ]
+      attributes: ['id', 'nickname', 'phone', 'avatar', 'job', 'bio']
     });
-    let showFollow = true;
-    if (myUserId === Number(userId)) {
-      showFollow = false;
-    }
+
     // 获取关注总数
-    const follow_count = await ctx.model.Follow.count({
-      where: { user_id: userId }
-    });
-    const fans_count = await ctx.model.Follow.count({
-      where: { followed_user_id: userId }
-    });
+    const {
+      fans_count,
+      follow_count,
+      article_count
+    } = await ctx.service.user.getUserAllCount(ctx, userId);
     user.dataValues.follow_count = follow_count;
     user.dataValues.fans_count = fans_count;
-    user.dataValues.showFollow = showFollow;
+    user.dataValues.article_count = article_count;
+    user.dataValues.follow_count = follow_count;
+    user.dataValues.fans_count = fans_count;
+
     ctx.body = {
       code: 200,
       msg: '',

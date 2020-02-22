@@ -71,7 +71,12 @@ module.exports = appInfo => {
         '/api/verify',
         '/api/login',
         '/api/topics',
-        { method: 'get', url: '/api/article' }
+        '/api/user/profile',
+        '/api/follows',
+        '/api/fans',
+        { method: 'get', url: '/api/article' },
+        '/api/article/list',
+        '/api/comment'
       ]
     }
   };

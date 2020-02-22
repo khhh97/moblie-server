@@ -55,6 +55,7 @@ exports.generateToken = (ctx, data) => {
  * @param {String} token - token
  */
 exports.validateToken = (ctx, token) => {
+  if (!token) return '';
   const { secret } = ctx.app.config.token;
   return new Promise((resolve, reject) => {
     jwt.verify(token, secret, (err, decoded) => {

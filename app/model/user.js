@@ -44,26 +44,6 @@ module.exports = app => {
         type: STRING,
         comment: '个人简介'
       }
-      // fans_count: {
-      //   type: INTEGER,
-      //   defaultValue: 0,
-      //   comment: '粉丝数量'
-      // },
-      // follow_count: {
-      //   type: INTEGER,
-      //   defaultValue: 0,
-      //   comment: '关注数量'
-      // },
-      // praise_count: {
-      //   type: INTEGER,
-      //   defaultValue: 0,
-      //   comment: '获赞数量'
-      // },
-      // dynamic_count: {
-      //   type: INTEGER,
-      //   defaultValue: 0,
-      //   comment: '动态数量'
-      // }
     }),
     tableConfig
   );

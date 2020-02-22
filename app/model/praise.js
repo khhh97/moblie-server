@@ -15,7 +15,7 @@ module.exports = app => {
       type: {
         type: ENUM('0', '1'),
         allowNull: false,
-        comment: '点赞类型  1作品点赞  2 评论点赞'
+        comment: '点赞类型  0作品点赞  1 评论点赞'
       },
       user_id: {
         type: INTEGER,

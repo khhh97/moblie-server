@@ -19,8 +19,17 @@ module.exports = app => {
   // 获取自己的用户信息
   subRouter.get('/user/my', controller.user.getMyInfo);
 
+  // 获取自己的浏览历史
+  subRouter.get('/user/my/history', controller.article.getMyBrowseHistory);
+
+  // 获取自己点赞的文章
+  subRouter.get('/user/my/likes', controller.praise.getMyPraiseArticle);
+
+  // 获取我收藏的文章
+  subRouter.get('/user/my/collect', controller.collect.getMyCollections);
+
   // 获取个人主页信息
-  subRouter.get('/user/profile/:id', controller.user.getUserInfo);
+  subRouter.get('/user/profile', controller.user.getUserInfo);
 
   // 更新用户信息
   subRouter.post('/user/update', controller.user.updateUserInfo);
@@ -48,4 +57,19 @@ module.exports = app => {
 
   // 获取文章信息
   subRouter.get('/article', controller.article.getArticleDetail);
+
+  // 获取文章列表
+  subRouter.get('/article/list', controller.article.getArticleList);
+
+  // 对评论或者文章点赞
+  subRouter.post('/like', controller.praise.giveLike);
+
+  subRouter.post('/collect', controller.collect.collectArticle);
+
+  // 创建评论
+  subRouter.post('/comment', controller.comment.create);
+
+  // 获取评论列表
+  subRouter.get('/comment', controller.comment.getArticleComments);
+
 };
