@@ -1,5 +1,6 @@
 /* eslint-disable jsdoc/check-param-names */
 const { Controller } = require('egg');
+const uuidv4 = require('uuid/v4');
 
 class UserController extends Controller {
   /**
@@ -64,7 +65,7 @@ class UserController extends Controller {
     if (!user) {
       newUser = true;
       user = await ctx.model.User.create({
-        nickname: phone,
+        nickname: `用户${uuidv4().substring(0, 8)}`,
         phone,
         verify_code: verifyInfo.verify_code,
         verify_expire: verifyInfo.verify_expire
