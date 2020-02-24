@@ -1,3 +1,18 @@
+# [1.0.0](https://github.com/khhh97/moblie-server/compare/v0.1.0...v1.0.0) (2020-02-24)
+
+
+### Bug Fixes
+
+* 修改用户登录用户名生成方式 ([284f936](https://github.com/khhh97/moblie-server/commit/284f936e3be9fe3e5dfdfba4914ab5bc97ef0a9a))
+
+
+### Features
+
+* 新增搜索建议接口 ([aabc3e3](https://github.com/khhh97/moblie-server/commit/aabc3e31a7c3bf447e611cef43d239a7984940ee))
+* 新增机器人聊天接口 ([6e1fc01](https://github.com/khhh97/moblie-server/commit/6e1fc01f940995453241073956493df2eb485c11))
+
+
+
 # [0.1.0](https://github.com/khhh97/moblie-server/compare/v0.0.4...v0.1.0) (2020-02-22)
 
 
