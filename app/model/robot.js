@@ -18,7 +18,6 @@ module.exports = app => {
       },
       content: {
         type: STRING,
-        allowNull: false,
         comment: '提问与回复内容'
       },
       img_url: {

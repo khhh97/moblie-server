@@ -77,4 +77,7 @@ module.exports = app => {
 
   // 在线机器人聊天
   subRouter.post('/robot', controller.robot.sendMsg);
+
+  // 获取与机器人的聊天记录
+  subRouter.get('/robot/records', controller.robot.getChatRecord);
 };
