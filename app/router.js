@@ -61,6 +61,9 @@ module.exports = app => {
   // 获取文章列表
   subRouter.get('/article/list', controller.article.getArticleList);
 
+  // 搜索接口建议
+  subRouter.get('/suggest', controller.article.getSearchSuggest);
+
   // 对评论或者文章点赞
   subRouter.post('/like', controller.praise.giveLike);
 
@@ -72,4 +75,6 @@ module.exports = app => {
   // 获取评论列表
   subRouter.get('/comment', controller.comment.getArticleComments);
 
+  // 在线机器人聊天
+  subRouter.post('/robot', controller.robot.sendMsg);
 };

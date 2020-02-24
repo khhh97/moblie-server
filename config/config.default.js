@@ -76,7 +76,8 @@ module.exports = appInfo => {
         '/api/fans',
         { method: 'get', url: '/api/article' },
         '/api/article/list',
-        '/api/comment'
+        '/api/comment',
+        '/api/suggest'
       ]
     }
   };

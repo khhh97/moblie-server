@@ -195,6 +195,50 @@ class ArticleController extends Controller {
     result.count = history.count;
     ctx.helper.success(ctx, result);
   }
+
+  /**
+   * @description 搜索建议
+   */
+  async getSearchSuggest() {
+    const { ctx } = this;
+    const { question } = ctx.query;
+
+    if (!question) {
+      ctx.helper.success(ctx, []);
+      return;
+    }
+
+    // 调用百度的搜索建议接口
+    const url = 'http://suggestion.baidu.com/su';
+    const query = {
+      wd: question,
+      cb: 'baiduSuggestCallback',
+      t: new Date().getTime()
+    };
+
+    let suggestions = [];
+    let result = '';
+    // eslint-disable-next-line no-unused-vars
+    const baiduSuggestCallback = data => {
+      if (data && data.s) suggestions = data.s;
+    };
+
+    try {
+      const { data } = await ctx.curl(url, {
+        dataType: 'text',
+        data: query
+      });
+      result = data;
+    } catch (error) {
+      ctx.helper.fail(ctx, '网络请求超时，请重新尝试!');
+      return;
+    }
+
+    // eslint-disable-next-line no-eval
+    eval(result);
+
+    ctx.helper.success(ctx, suggestions);
+  }
 }
 
 module.exports = ArticleController;

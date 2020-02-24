@@ -92,3 +92,19 @@ exports.success = (ctx, data = '', message = '') => {
     data
   };
 };
+/**
+ * @description ascii码转字符串
+ * @param {String} ascii - ascii码构成的字符串
+ */
+exports.ascii2String = ascii => {
+  const character = ascii.split('\\u');
+  let result = character[0];
+  for (let i = 1; i < character.length; i++) {
+    const code = character[i];
+    result += String.fromCharCode(parseInt('0x' + code.substring(0, 4)));
+    if (code.length > 4) {
+      result += code.substring(4, code.length);
+    }
+  }
+  return result;
+};
