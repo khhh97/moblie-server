@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/khhh97/moblie-server/compare/v1.0.0...v1.0.1) (2020-02-25)
+
+
+### Features
+
+* 新增在线接口文档地址与数据库初始化接口sql文件 ([23e0658](https://github.com/khhh97/moblie-server/commit/23e0658eedfc4356ac3a0bfe098b34320ea562f8))
+
+
+
 # [1.0.0](https://github.com/khhh97/moblie-server/compare/v0.1.0...v1.0.0) (2020-02-24)
 
 
