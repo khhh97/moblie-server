@@ -175,4 +175,20 @@ CREATE TABLE `verify`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
+-- ----------------------------
+-- Table structure for robot
+-- ----------------------------
+DROP TABLE IF EXISTS `robot`;
+CREATE TABLE `robot`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sender_id` int(11) NOT NULL COMMENT '发送消息用户id',
+  `accept_id` int(11) NOT NULL COMMENT '接受者用户id',
+  `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '提问与回复内容',
+  `img_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '消息记录中预留的图片地址',
+  `created_at` datetime NOT NULL COMMENT '创建时间',
+  `updated_at` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+
+
 SET FOREIGN_KEY_CHECKS = 1;

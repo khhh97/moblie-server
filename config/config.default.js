@@ -63,6 +63,10 @@ module.exports = appInfo => {
       accessKeySecret: '',
       bucket: ''
     },
+    robot: {
+      key: '',
+      url: ''
+    },
     token: {
       secret: 'mobile',
       // 过期时间为 7天
