@@ -1,3 +1,13 @@
+## [1.0.2](https://github.com/khhh97/moblie-server/compare/v1.0.1...v1.0.2) (2020-04-05)
+
+
+### Bug Fixes
+
+* 修复README.md中接口文档标题字号大小问题 ([acfff36](https://github.com/khhh97/moblie-server/commit/acfff364d0e4f6c78bd58e4cb3ad868b0cd9e8d2))
+* 解决接口校验问题 ([64527dc](https://github.com/khhh97/moblie-server/commit/64527dcfdee564867c00e305acb58bf8b2f9be07))
+
+
+
 ## [1.0.1](https://github.com/khhh97/moblie-server/compare/v1.0.0...v1.0.1) (2020-02-25)
 
 
