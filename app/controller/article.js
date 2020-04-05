@@ -18,22 +18,6 @@ class ArticleController extends Controller {
           type: 'string',
           required: true
         },
-        img1_url: {
-          type: 'url',
-          required: false
-        },
-        img2_url: {
-          type: 'url',
-          required: false
-        },
-        img3_url: {
-          type: 'url',
-          required: false
-        },
-        video_url: {
-          type: 'url',
-          required: false
-        },
         topic_id: {
           type: 'string',
           required: true
