@@ -12,7 +12,7 @@ class CommentController extends Controller {
     ctx.validate(
       {
         article_id: {
-          type: 'string',
+          type: 'number',
           required: true
         },
         content: {
