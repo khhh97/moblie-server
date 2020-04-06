@@ -134,6 +134,18 @@ class ArticleController extends Controller {
       if (hasCollect) article.dataValues.collect = true;
     }
 
+    article.dataValues.follow = false;
+
+    // 获取观察者对作者的关注情况
+    if (userId) {
+      const record = await ctx.model.Follow.findOne({
+        where: { user_id: userId, followed_user_id: article.user.id }
+      });
+      if (record && record.status !== 1) {
+        article.dataValues.follow = true;
+      }
+    }
+
     ctx.helper.success(ctx, article);
   }
 
