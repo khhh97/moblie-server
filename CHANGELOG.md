@@ -1,3 +1,15 @@
+## [1.0.3](https://github.com/khhh97/moblie-server/compare/v1.0.2...v1.0.3) (2020-04-06)
+
+
+### Bug Fixes
+
+* 修复发表评论接口bug ([0402a7e](https://github.com/khhh97/moblie-server/commit/0402a7ef1fd621fe9540ecb18c990776bd38ac26))
+* 修改接口配置 ([31bab72](https://github.com/khhh97/moblie-server/commit/31bab7267d6079786d54b16b08654302f85fe70d))
+* 获取文章信息接口添加关注状态信息 ([3e0dce0](https://github.com/khhh97/moblie-server/commit/3e0dce0f693ebe6268493079ffffd71961cf0a03))
+* 评论接口bug ([408edea](https://github.com/khhh97/moblie-server/commit/408edea1c8c6247d92aab69d545f49283d2a4aa6))
+
+
+
 ## [1.0.2](https://github.com/khhh97/moblie-server/compare/v1.0.1...v1.0.2) (2020-04-05)
 
 
