@@ -25,7 +25,6 @@ class ArticleController extends Controller {
       },
       article
     );
-    console.log(article.content);
     const userId = ctx.request.user.id;
     const result = await ctx.model.Article.create({
       title: article.title,

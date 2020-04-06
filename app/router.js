@@ -38,7 +38,7 @@ module.exports = app => {
   subRouter.post('/user/avatar', controller.user.updateUserAvatar);
 
   // 新增关注
-  subRouter.post('/follow/:id', controller.follow.create);
+  subRouter.post('/follow', controller.follow.create);
 
   // 获取关注列表
   subRouter.get('/follows', controller.follow.getFollowList);

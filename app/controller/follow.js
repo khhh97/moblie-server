@@ -7,7 +7,8 @@ class FollowController extends Controller {
    */
   async create() {
     const { ctx } = this;
-    const id = Number(ctx.params.id);
+    let { id } = ctx.request.body;
+    id = Number(id);
     const userId = ctx.request.user.id;
 
     if (!id) {
