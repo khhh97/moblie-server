@@ -211,7 +211,7 @@ class UserController extends Controller {
    */
   async getUserInfo() {
     const { ctx } = this;
-    const userId = ctx.request.body.id;
+    const userId = ctx.query.id;
 
     if (!userId) {
       ctx.helper.fail(ctx, '缺少必要参数用户id');
