@@ -220,7 +220,7 @@ class UserController extends Controller {
 
     const user = await ctx.model.User.findOne({
       where: { id: userId },
-      attributes: ['id', 'nickname', 'phone', 'avatar', 'job', 'bio']
+      attributes: ['id', 'nickname', 'avatar', 'job', 'bio']
     });
 
     // 获取关注总数
