@@ -217,6 +217,27 @@ class UserController extends Controller {
       ctx.helper.fail(ctx, '缺少必要参数用户id');
       return;
     }
+    const { token } = ctx.request.header;
+    let follow = false;
+    if (token) {
+      try {
+        const result = await ctx.helper.validateToken(ctx, token);
+        if (result && result.user_id) {
+          const record = await ctx.model.Follow.findOne({
+            where: {
+              user_id: Number(result.user_id),
+              followed_user_id: userId
+            }
+          });
+          console.log(record);
+          if (record) {
+            follow = true;
+          }
+        }
+      } catch (error) {
+        follow = false;
+      }
+    }
 
     const user = await ctx.model.User.findOne({
       where: { id: userId },
@@ -229,11 +250,12 @@ class UserController extends Controller {
       follow_count,
       article_count
     } = await ctx.service.user.getUserAllCount(ctx, userId);
-    user.dataValues.follow_count = follow_count;
-    user.dataValues.fans_count = fans_count;
+    // user.dataValues.follow_count = follow_count;
+    // user.dataValues.fans_count = fans_count;
     user.dataValues.article_count = article_count;
     user.dataValues.follow_count = follow_count;
     user.dataValues.fans_count = fans_count;
+    user.dataValues.follow = follow;
 
     ctx.body = {
       code: 200,
