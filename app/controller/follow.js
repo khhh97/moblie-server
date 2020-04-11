@@ -78,7 +78,7 @@ class FollowController extends Controller {
 
     // 查询自己的关注列表
     ctx.model.Follow.belongsTo(ctx.model.User, {
-      foreignKey: 'user_id',
+      foreignKey: 'followed_user_id',
       targetKey: 'id'
     });
     const result = await ctx.model.Follow.findAndCountAll({
