@@ -74,12 +74,9 @@ class FollowController extends Controller {
    */
   async getFollowList() {
     const { ctx } = this;
-    let { id, page = 1, limit = 15 } = ctx.query;
-    const userId = ctx.request.user.id;
+    const { id, page = 1, limit = 15 } = ctx.query;
 
     // 查询自己的关注列表
-    if (!id) id = userId;
-
     ctx.model.Follow.belongsTo(ctx.model.User, {
       foreignKey: 'user_id',
       targetKey: 'id'
@@ -116,11 +113,9 @@ class FollowController extends Controller {
    */
   async getFansList() {
     const { ctx } = this;
-    let { id, page = 1, limit = 15 } = ctx.query;
-    const userId = ctx.request.user.id;
+    const { id, page = 1, limit = 15 } = ctx.query;
 
     // 查询自己的粉丝列表
-    if (!id) id = userId;
     ctx.model.Follow.belongsTo(ctx.model.User, {
       foreignKey: 'user_id',
       targetKey: 'id'

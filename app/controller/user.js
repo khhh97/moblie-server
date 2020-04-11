@@ -250,8 +250,6 @@ class UserController extends Controller {
       follow_count,
       article_count
     } = await ctx.service.user.getUserAllCount(ctx, userId);
-    // user.dataValues.follow_count = follow_count;
-    // user.dataValues.fans_count = fans_count;
     user.dataValues.article_count = article_count;
     user.dataValues.follow_count = follow_count;
     user.dataValues.fans_count = fans_count;
