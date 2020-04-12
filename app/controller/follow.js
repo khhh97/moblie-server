@@ -42,7 +42,6 @@ class FollowController extends Controller {
 
     // 处于未关注状态
     if (status === 1) {
-      console.log(followed.status);
       status = followed && Number(followed.status) !== 1 ? 2 : 0;
       await ctx.model.Follow.update({ status: String(status) }, { where });
       if (followed && Number(followed.status) === 0) {

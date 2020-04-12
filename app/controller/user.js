@@ -229,7 +229,6 @@ class UserController extends Controller {
               followed_user_id: userId
             }
           });
-          console.log(record);
           if (record) {
             follow = true;
           }
@@ -310,7 +309,6 @@ class UserController extends Controller {
       user
     );
     // 更新数据库
-    console.log(user);
     await ctx.model.User.update(user, {
       where: { id: ctx.request.user.id }
     });
