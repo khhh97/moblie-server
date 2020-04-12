@@ -1,4 +1,5 @@
 const { Service } = require('egg');
+const { Op } = require('sequelize');
 
 class UserService extends Service {
   // eslint-disable-next-line jsdoc/require-param
@@ -8,11 +9,11 @@ class UserService extends Service {
   async getUserAllCount(ctx, userId) {
     // 关注数
     const stars = await ctx.model.Follow.count({
-      where: { user_id: userId }
+      where: { user_id: userId, [Op.or]: [{ status: '0' }, { status: '2' }] }
     });
     // 粉丝数
     const followers = await ctx.model.Follow.count({
-      where: { followed_user_id: userId }
+      where: { user_id: userId, [Op.or]: [{ status: '0' }, { status: '2' }] }
     });
     // 文章数量
     const articles = await ctx.model.Article.count({
