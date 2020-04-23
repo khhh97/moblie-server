@@ -52,8 +52,15 @@ class ArticleController extends Controller {
     }
 
     // 如果登录情况下，校验token获取userId
-    const user = await ctx.helper.validateToken(ctx, ctx.request.header.token);
-    if (user && user.user_id) userId = user.user_id;
+    if (ctx.request.header.token) {
+      try {
+        const user = await ctx.helper.validateToken(ctx, ctx.request.header.token);
+        if (user && user.user_id) userId = user.user_id;
+      } catch (error) {
+        userId = '';
+      }
+    }
+
 
     ctx.model.Article.belongsTo(ctx.model.User, {
       foreignKey: 'post_id',
