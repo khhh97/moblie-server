@@ -12,7 +12,7 @@ class CommonController extends Controller {
   async httpMiddleware() {
     const baseUrl = 'https://aip.baidubce.com';
     const { ctx } = this;
-    const body = ctx.body;
+    const body = ctx.request.body;
     const query = ctx.query;
     const method = ctx.method;
     const { target } = ctx.request.header;
@@ -31,13 +31,28 @@ class CommonController extends Controller {
 
     // 发请求
     const options = { method, dataType: 'json' };
-    if (Object.keys(query).length > 0) { url = url + '?' + queryString.stringify(query); }
-    if (body && method.toUpperCase() === 'POST' && Object.keys(body).length > 0) { options.data = body; }
+    if (Object.keys(query).length > 0) {
+      url = url + '?' + queryString.stringify(query);
+    }
+    if (
+      body &&
+      method.toUpperCase() === 'POST' &&
+      Object.keys(body).length > 0
+    ) {
+      options.data = body;
+    }
 
     try {
-      const { status, res } = await ctx.curl(url, options);
+      const result = await ctx.curl(url, options);
+      const { status, res } = result;
+
       if (status !== 200) {
         ctx.helper.fail(ctx, '请求失败,请重试');
+        return false;
+      }
+
+      if (res.data && res.data.error_code) {
+        ctx.helper.fail(ctx, res.data.error_msg || '请求失败,请重试');
         return false;
       }
 
