@@ -81,7 +81,8 @@ module.exports = appInfo => {
         { method: 'get', url: '/api/article' },
         '/api/article/list',
         { method: 'get', url: '/api/comment' },
-        '/api/suggest'
+        '/api/suggest',
+        '/api/baidu'
       ]
     }
   };

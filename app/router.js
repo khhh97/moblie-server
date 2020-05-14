@@ -80,4 +80,9 @@ module.exports = app => {
 
   // 获取与机器人的聊天记录
   subRouter.get('/robot/records', controller.robot.getChatRecord);
+
+  // 百度云代理
+  subRouter.get('/baidu', controller.common.httpMiddleware);
+
+  subRouter.post('/baidu', controller.common.httpMiddleware);
 };
